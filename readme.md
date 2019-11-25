@@ -24,3 +24,5 @@ Resultado = Id do animal cadastrado
 Obs.: Neste método há a verificação do token. 
 Necessário passar no header a key Authorization: "Bearer eymSAIDJIKm..."
 
+Publicado no endereço:
+http://fathomless-hamlet-61397.herokuapp.com
