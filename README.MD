@@ -1,9 +1,11 @@
 # API usando NodeJS!
 
-## Passo 1 - Clone o repo
+## Passo 1 - Clone e Instalação
 
 ````
-digite npm install
+No prompt de comando digite:
+git clone https://github.com/vinimartins/CrudLogin.git
+npm install
 npm run start
 ```` 
 
