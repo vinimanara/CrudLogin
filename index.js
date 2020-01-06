@@ -1,8 +1,11 @@
 const express = require ('express')
 const app = express()
 const mongoose = require('mongoose')
-const authRoute = require('./routes/auth')
+const userRoute = require('./routes/user')
 const apiRoute = require('./routes/api')
+const authRoute = require('./routes/auth')
+const verifyToken = require('./routes/verifyToken');
+
 const dotenv = require('dotenv')
 dotenv.config()
 
@@ -20,10 +23,11 @@ mongoose.connect(process.env.DBURL, dbOptions)
 
 
 app.use(express.json())
-//routes
-app.use('/user', authRoute) 
-app.use('/api', apiRoute) 
 
+//routes
+app.use('/user', userRoute) 
+app.use('/api', verifyToken, apiRoute) 
+app.use('/auth', authRoute)
 
 app.listen(3000,() => console.log('Server running'))
 
