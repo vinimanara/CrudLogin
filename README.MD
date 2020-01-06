@@ -1,15 +1,17 @@
 # API usando NodeJS!
 
-## Passo 1 - Clone e Instalação
+## Passo 1 - Clone o repo
 
 ````
-No prompt de comando digite:
 git clone https://github.com/vinimartins/CrudLogin.git
+```` 
+## Passo 2 - Instalação:
+
+````
 npm install
 npm run start
 ```` 
-
-## Passo 2 - No postman:
+## Passo 3 - No Postman:
 
 <strong> Crie o usuário </strong>
 - Endpoint: http://localhost:3000/user/
@@ -17,6 +19,7 @@ npm run start
 - Retorno: Id do Usuário
 - Headers:
 - Content-Type: application/json*
+
 ````
 {
  "name":"Vini",
@@ -30,6 +33,7 @@ npm run start
 - Retorno: Token com duração de 12h
 - Headers:
 - Content-Type: application/json
+
 ````
 {
  "email":"teste@teste.com",
@@ -40,11 +44,11 @@ npm run start
 - Endpoint: http://localhost:3000/api/animal
 - Método: Post
 - Resultado = Id do animal cadastrado
-- Obs.: Neste método há a verificação do token. 
+- Obs.: Em todos métodos chamados no /api/ há a verificação do JWT. 
 <ul>Header: 
  <li>Content-type: Application/json</li>
- <li>Authorization: *Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGRjMGJmZmJjNjUyODQ0MzBhNTIxOTQiLCJpYXQiOjE1NzQ3MDIxNDF9.bKbN3ZTCESVW7Ya8oPp0sadZTMN4f4_akdNX3RHYyTM* </li>
- </ul>
+ <li>Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGRjMGJmZmJjNjUyODQ0MzBhNTIxOTQiLCJpYXQiOjE1NzQ3MDIxNDF9.bKbN3ZTCESVW7Ya8oPp0sadZTMN4f4_akdNX3RHYyTM </li>
+</ul>
  
 ````
 {	

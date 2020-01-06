@@ -1,4 +1,4 @@
-const express = require ('express')
+const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const userRoute = require('./routes/user')
@@ -12,22 +12,22 @@ dotenv.config()
 
 //dbconnection
 const dbOptions = {
-    keepAlive: 1,
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  }; 
+  keepAlive: 1,
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+};
 
 mongoose.connect(process.env.DBURL, dbOptions)
-    .then(()=>console.log('db connected!'))
-    .catch(()=>console.log('db connection error!'))
+  .then(() => console.log('db connected!'))
+  .catch(() => console.log('db connection error!'))
 
 
 app.use(express.json())
 
 //routes
-app.use('/user', userRoute) 
-app.use('/api', verifyToken, apiRoute) 
+app.use('/user', userRoute)
 app.use('/auth', authRoute)
+app.use('/api', verifyToken, apiRoute)
 
-app.listen(3000,() => console.log('Server running'))
+app.listen(3000, () => console.log('Server running'))
 
