@@ -5,7 +5,7 @@ function unauthorized(res) {
 }
 
 module.exports = (req, res, next) => {
-    // DESESTRUTURAÇÃO
+
     const { authorization } = req.headers;
     let parts, token;
 
