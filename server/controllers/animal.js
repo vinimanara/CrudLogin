@@ -9,6 +9,7 @@ module.exports = {
     /* Validação dos Campos */
     const { error } = animalValidation(req.body)
     if (error) return res.status(400).send(error.details[0].message)
+
     const animal = new animalModel({
       name: req.body.name,
       type: req.body.type

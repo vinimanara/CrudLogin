@@ -1,4 +1,5 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+mongoose.set('useCreateIndex', true);
 
 const animalSchema = new mongoose.Schema({
     name:{

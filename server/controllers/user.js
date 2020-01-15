@@ -3,6 +3,7 @@ const userModel = require('../models/User')
 const { registerValidation } = require('../utils/fieldsValidation')
 
 module.exports = {
+
     /* Adiciona Usuário */
     add: async (req, res) => {
 
@@ -26,28 +27,61 @@ module.exports = {
 
         try {
             savedUser = user.save()
-            res.send({ user: user.id })
-            console.log(`User inserted - Id: ${user.id}`)
-        }
-        catch (err) {
-            res.status(400).send(err)
-            console.log(`Woops, something didn't work!`)
-        }
+            res.send({ user: user.id }); console.log(`User inserted - Id: ${user.id}`)
+        } catch (err) { res.status(400).send(err) }
     },
 
     /* Lista todos usuários */
     list: (req, res) => {
-        const user = new userModel({});
         try {
-            user.find({}).exec(function (err, docs) {
-                if (err) {
-                    res.send('error has ocurred')
-                }
-                else { console.log(docs); res.json(docs) }
-            })
-        }
-        catch (err) {
-            res.status(500).send(err); console.log(`deu ruim ${err}\n USER -> ${user})}`)
-        }
+            userModel.find().then(users => {
+                return res.json(users)
+            }); console.log(`Users listed successfully`)
+        } catch (err) { res.status(500).send(err); console.log(err) }
+    },
+
+    /* Lista por ID */
+    listById: async (req, res) => {
+        try {
+            await userModel.findById(req.params.id).then(user => {
+                if (user) { return res.json(user) }
+            });
+        } catch (err) { res.status(404).send(`ID Não existe`); console.log(err) }
     }
+    /*    
+        findOneAndDelete: (req, res) => {
+            try {
+                userModel.findOneAndDelete({
+                    field: filter
+                }, (err, doc) => {
+                    if (err) {
+                        console.log(`Error: ` + err)
+                    } else {
+                        if (!doc) {
+                            console.log("message")
+                        } else {
+    
+                        }
+                    }
+                });
+            } catch (err) { return res.send(500) }
+        },
+        findOneAndUpdate: (req, res) => {
+            try {
+                userModel.findOneAndUpdate({
+                    req.params.id: filter,
+                }, {
+                    update-field: filter,
+                }, (err, doc) => {
+                    if (err) {
+                        console.log(`Error: ` + err)
+                    } else {
+                        
+                    }
+                });
+            } catch (err) { res.send(500) }
+        }*/
+
+
+
 };

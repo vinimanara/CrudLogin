@@ -14,8 +14,8 @@ const dbOptions = {
   useNewUrlParser: true,
 };
 mongoose.connect(process.env.DBURL, dbOptions)
-  .then(() => console.log('db connected!'))
-  .catch(() => console.log('db connection error!'))
+  .then(() => console.log('Mongodb connected!'))
+  .catch(() => console.log('Database connection error!'))
 
 app.use(express.json())
 app.use(bodyParser.json())
