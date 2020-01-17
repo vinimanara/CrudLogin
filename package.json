@@ -2,11 +2,11 @@
   "name": "crudlogin",
   "version": "1.0.0",
   "description": "Node API using mongoDB, Mongoose, JWT",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-dev": "nodemon app.js"
+    "start-dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
