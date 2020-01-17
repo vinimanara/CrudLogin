@@ -72,11 +72,17 @@ module.exports = {
         const { error } = registerValidation(req.body)
         if (error) return res.status(400).send(error.details[0].message)
 
-        userModel.findByIdAndUpdate({ _id: req.params.id }, req.body).then(() => {
-            userModel.findOne({ _id: req.params.id })
-                .then(function (userModel) {
-                    res.send(userModel);
-                });
-        });
+        try {
+            await userModel.findByIdAndUpdate({ _id: req.params.id }, req.body).then((user) => {
+                if (user) {
+                    userModel.findOne({ _id: req.params.id })
+                        .then(function (userModel) {
+                            res.send(userModel);
+                        })
+                } else {
+                    res.status(404).send(`Usuário não Encontrado`)
+                }
+            });
+        } catch (err) { res.status(503).send(`ID inválido`); console.log(err) }
     }
 };

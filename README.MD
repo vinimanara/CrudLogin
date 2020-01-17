@@ -52,7 +52,6 @@ npm run start
  <li>Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGRjMGJmZmJjNjUyODQ0MzBhNTIxOTQiLCJpYXQiOjE1NzQ3MDIxNDF9.bKbN3ZTCESVW7Ya8oPp0sadZTMN4f4_akdNX3RHYyTM </li>
 </ul>
  
-
  
 <strong> Liste Usuário Por ID </strong>
 - Endpoint: http://localhost:3000/users/5e1d08f5ba6a971110263be8
@@ -74,6 +73,26 @@ npm run start
     "__v": 0
 }
 ````
+
+
+<strong> Remova Usuário Por ID </strong>
+- Endpoint: http://localhost:3000/users/5e1d08f5ba6a971110263be8
+- Método: DELETE
+- Obs.: Neste método há verificação de token JWT
+<ul>Header: 
+ <li>Content-type: Application/json</li>
+ <li>Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGRjMGJmZmJjNjUyODQ0MzBhNTIxOTQiLCJpYXQiOjE1NzQ3MDIxNDF9.bKbN3ZTCESVW7Ya8oPp0sadZTMN4f4_akdNX3RHYyTM </li>
+</ul>
+
+<strong> Atualize Usuário Por ID </strong>
+- Endpoint: http://localhost:3000/users/5e1d08f5ba6a971110263be8
+- Método: PUT
+- Obs.: Neste método há verificação de token JWT
+<ul>Header: 
+ <li>Content-type: Application/json</li>
+ <li>Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGRjMGJmZmJjNjUyODQ0MzBhNTIxOTQiLCJpYXQiOjE1NzQ3MDIxNDF9.bKbN3ZTCESVW7Ya8oPp0sadZTMN4f4_akdNX3RHYyTM </li>
+</ul>
+
 
 <strong> Cadastre Animais </strong>
 - Endpoint: http://localhost:3000/animals
