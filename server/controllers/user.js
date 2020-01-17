@@ -76,9 +76,7 @@ module.exports = {
             await userModel.findByIdAndUpdate({ _id: req.params.id }, req.body).then((user) => {
                 if (user) {
                     userModel.findOne({ _id: req.params.id })
-                        .then(function (userModel) {
-                            res.send(userModel);
-                        })
+                        .then(userModel => res.send(userModel))
                 } else {
                     res.status(404).send(`Usuário não Encontrado`)
                 }
