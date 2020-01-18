@@ -111,5 +111,8 @@ npm run start
 }
 ````
 
-Publicado no endereço:
-http://fathomless-hamlet-61397.herokuapp.com
+## Publicado no endereço:
+https://crudlogin.herokuapp.com
+
+## Collection Postman
+Use a collection do Postman para os testes da API
