@@ -1,0 +1,423 @@
+{
+	"info": {
+		"_postman_id": "8cdf13b7-f568-4b92-aa46-e641a3bc061f",
+		"name": "API_NODE_CRUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTFkMDhmNWJhNmE5NzExMTAyNjNiZTgiLCJpYXQiOjE1Nzg5NjExNzMsImV4cCI6MTU3OTAwNDM3M30.LseUv2jzqBuns7-a2MfJCha9xRwbWICQq7wRysT-Ds0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				},
+				"description": "Local users list"
+			},
+			"response": []
+		},
+		{
+			"name": "/user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZZZTNsS3JTV1Z3OWpTa0VmaXJiIiwiaWF0IjoxNTc0NjI2NDAwLCJleHAiOjE1NzQ2Njk2MDB9.LrYTqCADIvRY0yPtFIfjLQqS-sRPFKg-jO0eoESLCYM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"doc.brown@bttf.com.us\", \n\t\"password\": \"ClaraClaytonS2\",\n\t\"name\": \"Emmett\",\n\t\"lastName\": \"Brown\"\n    \n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				},
+				"description": "Create new user"
+			},
+			"response": []
+		},
+		{
+			"name": "/auth",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTE3ODFmZTk1YWI0MDBkODQ0M2M4NzkiLCJpYXQiOjE1Nzg2Njc4NzksImV4cCI6MTU3ODcxMTA3OX0.YO0kAW8xyM2OYtrXN0a-CxmX-Td9xfZDwBsItmLsARc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"ggg@aaa.com\",\n\t\"password\": \"ClaraClaytonS2\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/users/:id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTFkMGEyZjQyYzg4NTA4OTAyMWE1NjciLCJpYXQiOjE1NzkyMjUxODksImV4cCI6MTU3OTI2ODM4OX0.PFo-ZgnNH6UOqxc92WrUlpYRrLGSofRXtJaeJoQUzVQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/5e21acfc521a7320ecf72e1b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"5e21acfc521a7320ecf72e1b"
+					]
+				},
+				"description": "Request user by ID"
+			},
+			"response": []
+		},
+		{
+			"name": "/users/:id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTFkMDhmNWJhNmE5NzExMTAyNjNiZTgiLCJpYXQiOjE1NzkyMDUwNjUsImV4cCI6MTU3OTI0ODI2NX0.1wrN0w4VrvTsZ3HxY_dKiJfHzlSiHAR1_RkVvdbPblA",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Joao da Silva Teste\",\n\t\"email\":\"joao@este.com\",\n\t\"password\": \"1234567\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/5e1d08f5ba6a971110263be8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"5e1d08f5ba6a971110263be8"
+					]
+				},
+				"description": "Remove User"
+			},
+			"response": []
+		},
+		{
+			"name": "https://crudlogin.herokuapp.com/users",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTIyMzgwZGE4NDg1NDAwMTcwZGYzNTkiLCJpYXQiOjE1NzkzMDA5NzUsImV4cCI6MTU3OTM0NDE3NX0.RdlKnDKiXJiUxasNqOBN_FKVJl664-jjQ8DMriJ7oNs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://crudlogin.herokuapp.com/users",
+					"protocol": "https",
+					"host": [
+						"crudlogin",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				},
+				"description": "Publicado"
+			},
+			"response": []
+		},
+		{
+			"name": "https://crudlogin.herokuapp.com/auth",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTE3ODFmZTk1YWI0MDBkODQ0M2M4NzkiLCJpYXQiOjE1Nzg2Njc4NzksImV4cCI6MTU3ODcxMTA3OX0.YO0kAW8xyM2OYtrXN0a-CxmX-Td9xfZDwBsItmLsARc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"leo@teste.com\",\n\t\"password\": \"123456\"\n}"
+				},
+				"url": {
+					"raw": "https://crudlogin.herokuapp.com/auth",
+					"protocol": "https",
+					"host": [
+						"crudlogin",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"auth"
+					]
+				},
+				"description": "Published"
+			},
+			"response": []
+		},
+		{
+			"name": "https://crudlogin.herokuapp.com/user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"leo@teste.com\", \n\t\"password\": \"123456\",\n\t\"name\": \"Leo\"\n    \n}"
+				},
+				"url": {
+					"raw": "https://crudlogin.herokuapp.com/users",
+					"protocol": "https",
+					"host": [
+						"crudlogin",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://crudlogin.herokuapp.com/users/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTFkMGEyZjQyYzg4NTA4OTAyMWE1NjciLCJpYXQiOjE1NzkyMjUxODksImV4cCI6MTU3OTI2ODM4OX0.PFo-ZgnNH6UOqxc92WrUlpYRrLGSofRXtJaeJoQUzVQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://crudlogin.herokuapp.com/users/5e2233aaa8485400170df358",
+					"protocol": "https",
+					"host": [
+						"crudlogin",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"5e2233aaa8485400170df358"
+					]
+				},
+				"description": "Published"
+			},
+			"response": []
+		},
+		{
+			"name": "https://crudlogin.herokuapp.com/users/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://crudlogin.herokuapp.com/users/",
+					"protocol": "https",
+					"host": [
+						"crudlogin",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						""
+					]
+				},
+				"description": "Published"
+			},
+			"response": []
+		},
+		{
+			"name": "https://crudlogin.herokuapp.com/users/:id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTIxYWNmYzUyMWE3MzIwZWNmNzJlMWIiLCJpYXQiOjE1NzkyNjUzMTMsImV4cCI6MTU3OTMwODUxM30.P-lm98EO-cJ1CPG4ulMI6dapCE1M93XbTacbAPh2ZfY",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Leo Martins\",\t\n\t\"email\":\"teste@teste.com\",\n\t\"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://crudlogin.herokuapp.com/users/5e21acfc521a7320ecf72e1b",
+					"protocol": "https",
+					"host": [
+						"crudlogin",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"5e21acfc521a7320ecf72e1b"
+					]
+				},
+				"description": "Published"
+			},
+			"response": []
+		},
+		{
+			"name": "https://crudlogin.herokuapp.com/animal",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\r\n \"name\":\"Mia\",\r\n \"type\":\"Gato\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://crudlogin.herokuapp.com/animal",
+					"protocol": "https",
+					"host": [
+						"crudlogin",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"animal"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
