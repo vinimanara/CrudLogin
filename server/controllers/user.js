@@ -28,7 +28,7 @@ module.exports = {
         try {
             savedUser = user.save()
             res.send({ user: user.id }); console.log(`User inserted - Id: ${user.id}`)
-        } catch (err) { res.status(400).send(err) }
+        } catch (err) { res.status(500).send(err) }
     },
 
     /* Lista todos usuários */
@@ -50,7 +50,7 @@ module.exports = {
                     res.status(404).send(`Usuário não Encontrado`)
                 }
             });
-        } catch (err) { res.status(503).send(`ID inválido`); console.log(err) }
+        } catch (err) { res.status(500).send(`ID inválido`); console.log(err) }
     },
 
     /* Remove Usuário */
@@ -63,7 +63,7 @@ module.exports = {
                     res.status(404).send(`Usuário não Encontrado`)
                 }
             })
-        } catch (err) { res.status(503).send(`ID inválido`); console.log(err) }
+        } catch (err) { res.status(500).send(`ID inválido`); console.log(err) }
     },
 
     /* Atualiza Usuário */
@@ -81,6 +81,6 @@ module.exports = {
                     res.status(404).send(`Usuário não Encontrado`)
                 }
             });
-        } catch (err) { res.status(503).send(`ID inválido`); console.log(err) }
+        } catch (err) { res.status(500).send(`ID inválido`); console.log(err) }
     }
 };

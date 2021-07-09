@@ -21,7 +21,7 @@ module.exports = {
       console.log(`Animal ${animal.name} saved! Id: ${animal.id}`)
     }
     catch (err) {
-      res.status(400).send(err)
+      res.status(500).send(err)
       console.log(`Wrong Request! ${animal}`)
     }
   },
