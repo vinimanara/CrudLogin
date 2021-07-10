@@ -125,3 +125,4 @@ https://crudlogin.herokuapp.com
 ## Collection Postman
 
 Use a collection do Postman para os testes da API
+https://www.getpostman.com/collections/c6d74f82cf96c71f7f11
