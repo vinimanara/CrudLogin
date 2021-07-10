@@ -17,7 +17,7 @@ module.exports = {
             if (!validPwd) return res.status(400).send('Senha inválida')
 
             const token = jwt.sign({ _id: user._id }, process.env.SECRET, {
-                expiresIn: process.env.expiresInValue //12h
+                expiresIn: '12h'
             })
             res.header('auth-token', token).send(token)
         } catch (err) { res.sendStatus(500); console.log(err) }
