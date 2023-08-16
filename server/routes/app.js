@@ -7,7 +7,7 @@ const { login } = require('../controllers/auth');
 const router = express.Router();
 
 router.post('/auth', login);
-router.use('/users', users);
+router.use('/users', verifyToken, users);
 router.use('/animals', verifyToken, animals);
 
 module.exports = router
