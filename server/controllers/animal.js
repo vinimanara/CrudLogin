@@ -31,7 +31,50 @@ module.exports = {
         return res.json(animals)
       }); console.log(`Animals listed successfully`)
     } catch (err) { res.status(500).send(err); console.log(err) }
+  },
+
+  /* Lista por ID */
+  listById: async (req, res) => {
+    try {
+      await animalModel.findById(req.params.id).then(animal => {
+        if (animal) {
+          res.json(animal)
+        } else {
+          res.status(404).send(`Pet não cadastrado`)
+        }
+      });
+    } catch (err) { res.status(500).send(`ID inválido`); console.log(err) }
+  },
+
+  /* Remove Pet */
+  remove: async (req, res) => {
+    try {
+      await animalModel.findByIdAndRemove({ _id: req.params.id }).then(animal => {
+        if (animal) {
+          res.status(200).send(`Pet removido com sucesso`)
+        } else {
+          res.status(404).send(`Pet não encontrado`)
+        }
+      })
+    } catch (err) { res.status(500).send(`ID inválido`); console.log(err) }
+  },
+
+  /* Atualiza Pet */
+  update: async (req, res) => {
+    //Validação dos Campos
+    const { error } = registerValidation(req.body)
+    if (error) return res.status(400).send(error.details[0].message)
+
+    try {
+      await animalModel.findByIdAndUpdate({ _id: req.params.id }, req.body).then((user) => {
+        if (user) {
+          animalModel.findOne({ _id: req.params.id })
+            .then(animalModel => res.send(animalModel))
+        } else {
+          res.status(404).send(`Pet não Encontrado`)
+        }
+      });
+    } catch (err) { res.status(500).send(`ID inválido`); console.log(err) }
   }
 
-  
 }
