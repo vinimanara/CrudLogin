@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { add, list, listById } = require('../controllers/animal');
+const { add, list, listById, update, remove } = require('../controllers/animal');
 const verifyToken = require('../middlewares/verifyToken');
 
 router.post('/', add);
