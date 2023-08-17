@@ -1,5 +1,5 @@
 const animalModel = require('../models/Animal')
-const { animalValidation } = require('../utils/fieldsValidation')
+const { animalValidation, registerValidation } = require('../utils/fieldsValidation')
 
 module.exports = {
   /* Cadastro de Animais */
@@ -62,12 +62,13 @@ module.exports = {
   /* Atualiza Pet */
   update: async (req, res) => {
     //Validação dos Campos
-    const { error } = registerValidation(req.body)
+    console.log(req.body)
+    const { error } = animalValidation(req.body)
     if (error) return res.status(400).send(error.details[0].message)
 
     try {
-      await animalModel.findByIdAndUpdate({ _id: req.params.id }, req.body).then((user) => {
-        if (user) {
+      await animalModel.findByIdAndUpdate({ _id: req.params.id }, req.body).then((animal) => {
+        if (animal) {
           animalModel.findOne({ _id: req.params.id })
             .then(animalModel => res.send(animalModel))
         } else {
@@ -76,5 +77,4 @@ module.exports = {
       });
     } catch (err) { res.status(500).send(`ID inválido`); console.log(err) }
   }
-
 }
